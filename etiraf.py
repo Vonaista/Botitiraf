@@ -35,8 +35,8 @@ logging.basicConfig(
 )
 LOGGER = logging.getLogger(__name__)
 
-etiraf_eden = ["İstifadəçi Seçim Etməyib"]
-mesaj = ["Mesaj Görünmədi"]
+etiraf_eden = ["İtirafçı Seçmedi"]
+mesaj = ["Mesaj Görülmedi"]
 
 # Başlanğıc Mesajı
 @client.on(events.NewMessage(pattern="^/start$"))
@@ -171,7 +171,7 @@ async def tesdiq(event):
 async def sil(event):
     global tesdiq
     if not tesdiq.is_reply:
-      return await tesdiq.edit("Silmədə xəta baş verdi")
+      return await tesdiq.edit("Silme Hatası Verdi")
     if tesdiq.is_reply:
       etiraf = await tesdiq.get_reply_message()
       await etiraf.delete()
